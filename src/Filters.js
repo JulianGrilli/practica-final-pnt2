@@ -1,14 +1,24 @@
 export default  {
-    methods : {
-      dateFormat : function(fyh) {
-        return new Date(fyh).toLocaleString()
-      },
-      numberWithDolar: function(number) {
-          return '$'+number;
-      },
-      changeTexttoUpperCase: function(text){
-        return text.toUpperCase();
-      }
-    }
+  methods : {
 
+  resolver : function (mensaje){
+    const arrayMensaje= mensaje.split("");
+    let arrayCodificado = arrayMensaje.map(function(letra){
+      switch (letra) {
+        case 'a': letra = 'u'
+          break;
+          case 'e': letra = 'o'
+              break;
+        case 'o': letra = 'e'
+              break;
+          case 'u': letra = 'a'
+            break;
+        case 'i': letra = 'i'
+            break;
+      }
+    return letra;
+    });
+    return arrayCodificado.join('').toUpperCase();
+  }
+  }
 }
